@@ -2,9 +2,29 @@
   "manifest_version": 3,
   "name": "SmartTrack",
   "version": "1.0",
-  "description": "Quicker and mmarter way to track job application s.",
+  "description": "Quicker and smarter way to track job applications.",
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "storage",
+    "identity"
+  ],
+  "host_permissions": [
+    "https://accounts.google.com/*",
+    "https://www.googleapis.com/*"
+  ],
+  "icons": {
+    "16": "images/icon8.png",
+    "48": "images/icon8.png",
+    "128": "images/icon8.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
   ],
   "action": {
     "default_popup": "index.html",
@@ -14,9 +34,12 @@
       "128": "images/icon8.png"
     }
   },
-  "icons": {
-    "16": "images/icon8.png",
-    "48": "images/icon8.png",
-    "128": "images/icon8.png"
+  "host_permissions": [
+    "https://accounts.google.com/*"
+  ],
+  "oauth2": {
+    "client_id": "829182872582-iecgs7mllhf51n6egq5qh7ajf57quaul.apps.googleusercontent",
+    "scopes": ["https://www.googleapis.com/auth/spreadsheets"],
+    "redirect_uri": "chrome-extension://knaphlegmfbnmpanbdplkjgkpmffnkca/index.html"
   }
 }
