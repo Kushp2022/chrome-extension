@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "SmartTrack",
+  "version": "1.0",
+  "description": "Quicker and mmarter way to track job application s.",
+  "permissions": [
+    "activeTab"
+  ],
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "images/icon8.png",
+      "48": "images/icon8.png",
+      "128": "images/icon8.png"
+    }
+  },
+  "icons": {
+    "16": "images/icon8.png",
+    "48": "images/icon8.png",
+    "128": "images/icon8.png"
+  }
+}

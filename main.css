@@ -6,6 +6,8 @@ body {
     margin: 0;
     overflow-x: hidden;
     font-family: 'Poppins', arial;
+    width: 400px;
+        height: 300px;
 }
 
 .title-container {
@@ -82,7 +84,7 @@ h1.title {
     background-color: white;
     margin-top: 8em;
     width: 55%;
-    margin-left: 5.5em;
+    margin-left: 7em;
     display: flex;
     flex-direction: column;
     justify-content: center;
