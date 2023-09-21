@@ -34,11 +34,8 @@
       "128": "images/icon8.png"
     }
   },
-  "host_permissions": [
-    "https://accounts.google.com/*"
-  ],
   "oauth2": {
-    "client_id": "829182872582-iecgs7mllhf51n6egq5qh7ajf57quaul.apps.googleusercontent",
+    "client_id": "829182872582-iecgs7mllhf51n6egq5qh7ajf57quaul.apps.googleusercontent.com",
     "scopes": ["https://www.googleapis.com/auth/spreadsheets"],
     "redirect_uri": "chrome-extension://knaphlegmfbnmpanbdplkjgkpmffnkca/index.html"
   }

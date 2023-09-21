@@ -1,17 +1,27 @@
-// popup.js
-
-document.addEventListener('DOMContentLoaded', () => {
-  const authorizeButton = document.querySelector('.authorize-button');
-  authorizeButton.addEventListener('click', () => {
-    // Trigger the OAuth flow
-    chrome.runtime.sendMessage({ type: 'authenticate' });
+window.onload = function() {
+  document.querySelector('button').addEventListener('click', function() {
+    chrome.identity.getAuthToken({ interactive: true }, function(token) {
+      console.log(token);
+        // Make the fetch request inside the callback to use the obtained token
+        fetch('https://sheets.googleapis.com/v4/spreadsheets', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            properties: {
+              title: 'New Sheet Name',
+            },
+          }),
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Created new Google Sheets document:', data);
+        })
+        .catch(error => {
+          console.error('Error creating Google Sheets document:', error);
+        });
   });
-
-  // Listen for messages from your background script
-  chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    if (message.type === 'authorizationSuccess') {
-      // Authorization was successful, update the UI or perform other actions
-      document.querySelector('#answer').textContent = 'Authorization successful!';
-    }
   });
-});
+};
